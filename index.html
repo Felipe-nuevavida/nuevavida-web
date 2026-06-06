@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Vida | Premium Hochzeits- & Geschenkartikel</title>
+    <style>
+        /* Variables de color premium */
+        :root {
+            --primary-color: #2c3e50; /* Gris oscuro elegante */
+            --accent-color: #d4af37; /* Dorado/Champán */
+            --bg-light: #f9f9f9;
+            --text-color: #333;
+        }
 
+        /* Reset básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        body { color: var(--text-color); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Navegación */
+        header { background: #fff; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); letter-spacing: 2px; text-transform: uppercase; }
+        nav gap { display: flex; gap: 20px; }
+        nav a { font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--accent-color); }
+
+        /* Hero Section */
+        .hero { background-color: var(--primary-color); color: #fff; text-align: center; padding: 100px 20px; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 300; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
+
+        /* Secciones Generales */
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; color: var(--primary-color); }
+
+        /* Producto Activo */
+        .product-active { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; background: var(--bg-light); }
+        .product-image { flex: 1; min-width: 300px; background: #ddd; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666; }
+        .product-info { flex: 1; min-width: 300px; }
+        .product-info h2 { font-size: 2rem; margin-bottom: 15px; }
+        .product-info p { margin-bottom: 20px; font-size: 1.1rem; }
+        .product-info ul { margin-bottom: 30px; padding-left: 20px; }
+        .product-info li { margin-bottom: 10px; }
+        .btn-amazon { display: inline-block; background: #FF9900; color: #000; padding: 15px 30px; font-weight: bold; border-radius: 5px; transition: background 0.3s; }
+        .btn-amazon:hover { background: #e68a00; }
+
+        /* Próximos Lanzamientos */
+        .upcoming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .upcoming-card { border: 1px solid #eee; padding: 20px; border-radius: 8px; text-align: center; }
+        .upcoming-img-placeholder { background: #eee; height: 200px; margin-bottom: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #999; }
+        .badge { display: inline-block; background: var(--accent-color); color: #fff; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 15px; }
+
+        /* Sobre Nosotros & Contacto */
+        .about-contact { background: var(--primary-color); color: #fff; text-align: center; }
+        .about-contact h2 { color: var(--accent-color); }
+        .about-contact p { max-width: 700px; margin: 0 auto 30px; }
+        .email-link { font-size: 1.2rem; font-weight: bold; color: var(--accent-color); }
+
+        /* Footer */
+        footer { background: #1a252f; color: #ccc; text-align: center; padding: 20px; font-size: 0.9rem; }
+        footer a { color: #ccc; margin: 0 10px; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Nueva Vida</div>
+        <nav>
+            <a href="#produkte">Produkte</a>
+            <a href="#zukunft">Bald erhältlich</a>
+            <a href="#ueber-uns">Über uns</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Unvergessliche Momente verdienen besondere Details.</h1>
+        <p>Nueva Vida kreiert Premium-Hochzeits- und Geschenkartikel, die Ihre wichtigsten Tage im Leben perfekt machen.</p>
+    </section>
+
+    <section id="produkte" class="product-active">
+        <div class="product-image">
+            [Bild: Auto-Girlande B0CP4DKL3V]
+        </div>
+        <div class="product-info">
+            <h2>"Just Married" Auto-Girlande</h2>
+            <p>Der perfekte Abschluss für Ihre Traumhochzeit.</p>
+            <ul>
+                <li><strong>Premium Qualität:</strong> Hochwertige Materialien für einen eleganten Look.</li>
+                <li><strong>Sicher & Wetterfest:</strong> Entwickelt für die Fahrt, hält auch leichtem Regen stand.</li>
+                <li><strong>Einfache Montage:</strong> In wenigen Minuten sicher am Hochzeitsauto befestigt.</li>
+            </ul>
+            <!-- Reemplaza el # con el enlace real de tu tienda en Amazon -->
+            <a href="#" class="btn-amazon">Auf Amazon kaufen 🛒</a>
+        </div>
+    </section>
+
+    <section id="zukunft">
+        <h2 class="section-title">Bald in unserem Sortiment</h2>
+        <div class="upcoming-grid">
+            <div class="upcoming-card">
+                <div class="upcoming-img-placeholder">[Bild: Infinity Rose Heart]</div>
+                <span class="badge">Bald erhältlich</span>
+                <h3>Infinity Rose Heart</h3>
+                <p>7 echte, sorgfältig konservierte Rosen in einer eleganten Herzbox. Ein Symbol für ewige Liebe.</p>
+            </div>
+            <div class="upcoming-card">
+                <div class="upcoming-img-placeholder">[Bild: Premium Girlande B0GV9ZCX7W]</div>
+                <span class="badge">In Entwicklung - ETA 2027</span>
+                <h3>Premium Hochzeitsgirlande</h3>
+                <p>Die nächste Generation unserer Hochzeitsdekoration.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ueber-uns" class="about-contact">
+        <h2 class="section-title">Über Nueva Vida</h2>
+        <p>Wir glauben, dass die besten Geschenke und Feiern durch die kleinen Details unvergesslich werden. Als spezialisierte Marke für Hochzeits- und Premium-Geschenkartikel legen wir höchsten Wert auf Qualität, Design und Zuverlässigkeit.</p>
+        
+        <h2 class="section-title" style="margin-top: 60px;">Kontakt</h2>
+        <p>Haben Sie Fragen zu unseren Produkten? Wir sind für Sie da.</p>
+        <a href="mailto:info@nuevavida-ftv.de" class="email-link">info@nuevavida-ftv.de</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nueva Vida. Alle Rechte vorbehalten.</p>
+        <div style="margin-top: 10px;">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutzerklärung</a>
+        </div>
+    </footer>
+
+</body>
+</html>
