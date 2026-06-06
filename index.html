@@ -140,28 +140,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--color-light) 0%, #efefef 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.7) 0%, rgba(44, 62, 80, 0.5) 100%);
-            z-index: 1;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #3d5a6e 100%);
         }
 
         .hero-content {
@@ -275,10 +254,6 @@
 
         .product-image-wrapper {
             position: relative;
-            background-color: var(--color-light);
-            padding: 2rem;
-            border-radius: 8px;
-            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -370,7 +345,6 @@
             }
 
             .product-image-wrapper {
-                min-height: 300px;
                 order: -1;
             }
         }
@@ -428,12 +402,11 @@
 
         .card-image-wrapper {
             position: relative;
-            background-color: var(--color-light);
-            min-height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            min-height: 280px;
         }
 
         .card-image {
@@ -442,7 +415,6 @@
             height: auto;
             width: auto;
             object-fit: contain;
-            padding: 2rem;
         }
 
         .card-badge {
@@ -634,7 +606,6 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <img src="fondo-hero.jpg" alt="Hochzeit Hintergrund" class="hero-background">
         <div class="hero-content">
             <h1>Unvergessliche Momente verdienen besondere Details.</h1>
             <p>Nueva Vida kreiert Premium-Hochzeits- und Geschenkartikel, die Ihre wichtigsten Tage im Leben perfekt machen.</p>
