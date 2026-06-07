@@ -69,7 +69,7 @@
         }
 
         /* HERO */
-        .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop' ) center/cover no-repeat; }
+        .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop'  ) center/cover no-repeat; }
         .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 2rem; animation: fadeInUp 1s ease 0.3s both; }
         .hero h1 { font-family: var(--font-display); font-size: 3.5rem; color: var(--color-white); margin-bottom: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -1px; }
         .hero-separator { width: 60px; height: 2px; background-color: var(--color-gold); margin: 0 auto 20px auto; border: none; }
@@ -201,7 +201,8 @@
                     <div style="font-size: 0.95rem; color: var(--color-dark); font-weight: 600; margin-top: 4px;">Hervorragende Qualität</div>
                 </div>
 
-                <a href="https://www.amazon.de/dp/B0CP4DKL3V" target="_blank" class="cta-button">Auf Amazon kaufen 🛒</a>
+                <!-- BOTÓN ACTUALIZADO CON ID -->
+                <a href="https://www.amazon.de/dp/B0CP4DKL3V" target="_blank" class="cta-button" id="amazon-buy-btn">Auf Amazon kaufen 🛒</a>
             </div>
         </div>
     </section>
@@ -267,7 +268,7 @@
 
     <!-- JS -->
     <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn' );
+        const hamburgerBtn = document.getElementById('hamburgerBtn'  );
         const navMenu = document.getElementById('navMenu');
         const navLinks = navMenu.querySelectorAll('a');
 
@@ -301,6 +302,32 @@
 
         document.querySelectorAll('.product-section, .upcoming-section, .about-section').forEach(section => {
             observer.observe(section);
+        });
+
+        // --- SCRIPT DE AMAZON ATTRIBUTION ---
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Leer de dónde viene el usuario
+            const urlParams = new URLSearchParams(window.location.search);
+            const origen = urlParams.get('origen');
+            
+            // IMPORTANTE: El botón de compra debe tener el id="amazon-buy-btn"
+            const btnAmazon = document.getElementById('amazon-buy-btn');
+
+            // 2. Enlaces de Amazon Attribution para NV1 (Guirnalda)
+            const NV1_Default = "https://www.amazon.de/dp/B0CP4DKL3V?maas=maas_adg_EFBB0BE4C288392F039F7B1DEF691D16_afap_abs&ref_=aa_maas&tag=maas";
+            const NV1_PIN = "https://www.amazon.de/dp/B0CP4DKL3V?maas=maas_adg_6BC10B873E586FAF236D5E0C9EC26CF2_afap_abs&ref_=aa_maas&tag=maas";
+            const NV1_IG = "https://www.amazon.de/dp/B0CP4DKL3V?maas=maas_adg_F7991E055DF297F5232E4B91D6D6E294_afap_abs&ref_=aa_maas&tag=maas";
+
+            // 3. Cambiar el botón dinámicamente
+            if (btnAmazon ) {
+                if (origen === 'ig') {
+                    btnAmazon.href = NV1_IG;
+                } else if (origen === 'pin') {
+                    btnAmazon.href = NV1_PIN;
+                } else {
+                    btnAmazon.href = NV1_Default;
+                }
+            }
         });
     </script>
 </body>
