@@ -72,7 +72,7 @@
         }
 
         /* HERO */
-        .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop'  ) center/cover no-repeat; }
+        .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop'   ) center/cover no-repeat; }
         .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 2rem; animation: fadeInUp 1s ease 0.3s both; }
         .hero h1 { font-family: var(--font-display); font-size: 3.5rem; color: var(--color-white); margin-bottom: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -1px; }
         .hero-separator { width: 60px; height: 2px; background-color: var(--color-gold); margin: 0 auto 20px auto; border: none; }
@@ -204,6 +204,11 @@
                     <div style="font-size: 0.95rem; color: var(--color-dark); font-weight: 600; margin-top: 4px;">Hervorragende Qualität</div>
                 </div>
 
+                <!-- PRECIO INYECTADO -->
+                <div class="product-price" style="font-size: 2.2rem; font-weight: 700; color: var(--color-dark); margin-bottom: 1.5rem; font-family: var(--font-display);">
+                    38,99 € <span style="font-size: 0.9rem; font-weight: 400; color: #666; font-family: var(--font-body);">inkl. MwSt.</span>
+                </div>
+
                 <!-- BOTÓN ACTUALIZADO CON ID -->
                 <a href="https://www.amazon.de/dp/B0CP4DKL3V" target="_blank" class="cta-button" id="amazon-buy-btn">Auf Amazon kaufen 🛒</a>
             </div>
@@ -271,7 +276,7 @@
 
     <!-- JS -->
     <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn'  );
+        const hamburgerBtn = document.getElementById('hamburgerBtn'   );
         const navMenu = document.getElementById('navMenu');
         const navLinks = navMenu.querySelectorAll('a');
 
@@ -322,7 +327,7 @@
             const NV1_IG = "https://www.amazon.de/dp/B0CP4DKL3V?maas=maas_adg_F7991E055DF297F5232E4B91D6D6E294_afap_abs&ref_=aa_maas&tag=maas";
 
             // 3. Cambiar el botón dinámicamente
-            if (btnAmazon ) {
+            if (btnAmazon  ) {
                 if (origen === 'ig') {
                     btnAmazon.href = NV1_IG;
                 } else if (origen === 'pin') {
