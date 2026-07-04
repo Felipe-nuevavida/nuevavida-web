@@ -186,7 +186,7 @@
         </div>
     </section>
 
-    <!-- PRODUCTO ACTIVO -->
+    <!-- PRODUCTO ACTIVO NV1 -->
     <section class="product-section" id="productos">
         <div class="product-container">
             <div class="product-image-wrapper">
@@ -223,21 +223,48 @@
 
     <div class="divider"></div>
 
+    <!-- PRODUCTO ACTIVO NV3 - INFINITY ROSE HEART -->
+    <section class="product-section" id="infinity-rose">
+        <div class="product-container">
+            <div class="product-image-wrapper">
+                <img src="infinity-rose-heart-box.png" alt="Infinity Rose Heart" class="product-image">
+            </div>
+            <div class="product-content">
+                <h2>Infinity Rose Heart</h2>
+                <p>7 echte, in einem speziellen Verfahren konservierte Rosen in einer eleganten Herzbox. Ein Symbol für ewige Liebe, das 1 bis 3 Jahre makellos blüht – ganz ohne Pflege.</p>
+
+                <ul class="product-bullets">
+                    <li><strong>Echte konservierte Rosen:</strong> 7 handverlesene Premium-Rosen, die über Jahre hinweg ihre natürliche Schönheit bewahren.</li>
+                    <li><strong>Elegante Herzbox:</strong> Die perfekte und stilvolle Präsentation für ein unvergessliches Geschenk an Ihre Liebsten.</li>
+                    <li><strong>100% Pflegeleicht:</strong> Weder Wasser noch Sonnenlicht erforderlich – die Rosen blühen dauerhaft makellos.</li>
+                </ul>
+
+                <!-- PRUEBA SOCIAL -->
+                <div class="social-proof" style="margin-bottom: 1.5rem;">
+                    <div class="stars" style="font-size: 1.4rem; letter-spacing: 2px; line-height: 1;">
+                        <span style="color: #FFA41C;">★★★★★</span>
+                    </div>
+                    <div style="font-size: 0.95rem; color: var(--color-dark); font-weight: 600; margin-top: 4px;">Das perfekte Geschenk</div>
+                </div>
+
+                <!-- PRECIO -->
+                <div class="product-price" style="font-size: 2.2rem; font-weight: 700; color: var(--color-dark); margin-bottom: 1.5rem; font-family: var(--font-display);">
+                    29,99 € <span style="font-size: 0.9rem; font-weight: 400; color: #666; font-family: var(--font-body);">inkl. MwSt.</span>
+                </div>
+
+                <!-- BOTÓN CON ID -->
+                <a href="https://www.amazon.de/dp/B0H73CGJKY" target="_blank" class="cta-button" id="amazon-buy-btn-nv3">Auf Amazon kaufen 🛒</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- PRÓXIMOS LANZAMIENTOS -->
     <section class="upcoming-section" id="launches">
         <div class="upcoming-container">
             <h2 class="section-title">Bald in unserem Sortiment</h2>
             <div class="upcoming-grid">
-                <div class="product-card">
-                    <div class="card-image-wrapper">
-                        <img src="infinity-rose-heart-box.png" alt="Infinity Rose Heart" class="card-image">
-                        <span class="card-badge">Bald erhältlich</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Infinity Rose Heart</h3>
-                        <p>7 echte, in einem speziellen Verfahren konservierte Rosen in einer eleganten Herzbox. Ein Symbol für ewige Liebe, das 1 bis 3 Jahre makellos blüht – ganz ohne Pflege.</p>
-                    </div>
-                </div>
                 <div class="product-card">
                     <div class="card-image-wrapper">
                         <img src="premium-hochzeitsgirlande.png" alt="Premium Hochzeitsgirlande" class="card-image">
@@ -340,6 +367,25 @@
                     btnAmazon.href = NV1_PIN;
                 } else {
                     btnAmazon.href = NV1_Default;
+                }
+            }
+
+            // --- NV3: Infinity Rose Heart ---
+            const btnAmazonNV3 = document.getElementById('amazon-buy-btn-nv3');
+
+            // Enlaces de Amazon Attribution para NV3 (Infinity Rose Heart)
+            // Por ahora los 3 apuntan al enlace estándar hasta generar los links de Attribution específicos
+            const NV3_Default = "https://www.amazon.de/dp/B0H73CGJKY";
+            const NV3_PIN = "https://www.amazon.de/dp/B0H73CGJKY";
+            const NV3_IG = "https://www.amazon.de/dp/B0H73CGJKY";
+
+            if (btnAmazonNV3) {
+                if (origen === 'ig') {
+                    btnAmazonNV3.href = NV3_IG;
+                } else if (origen === 'pin') {
+                    btnAmazonNV3.href = NV3_PIN;
+                } else {
+                    btnAmazonNV3.href = NV3_Default;
                 }
             }
         });
