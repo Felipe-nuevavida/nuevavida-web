@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nueva Vida - Premium wedding and gift items for unforgettable moments.">
+    <title>Nueva Vida - Premium Wedding & Gift Items</title>
+    
+    <!-- PINTEREST VERIFICATION -->
+    <meta name="p:domain_verify" content="8d9660f0a3360d23dc9c41d857ab41d2"/>
+    
+    <!-- OPEN GRAPH / SOCIAL SEO -->
+    <meta property="og:title" content="Nueva Vida - Premium Wedding & Gift Items">
+    <meta property="og:description" content="Premium wedding decor & gifts for unforgettable moments. Discover our Just Married car garland.">
+    <meta property="og:image" content="https://shop.nuevavida-ftv.de/auto-girlande-hochzeit..jpg">
+    <meta property="og:url" content="https://shop.nuevavida-ftv.de/">
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <style>
+        :root {
+            --color-dark: #2c3e50;
+            --color-gold: #d4af37;
+            --color-light: #f9f9f9;
+            --color-white: #ffffff;
+            --color-text: #3a3a3a;
+            --color-border: #e8e8e8;
+            --font-display: 'Playfair Display', serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Lato', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--color-text); background-color: var(--color-white); line-height: 1.6; }
+
+        /* HEADER */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+        .header-container {
+            max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo { height: 50px; width: auto; object-fit: contain; }
+        .brand-name { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; color: var(--color-dark); letter-spacing: -0.5px; }
+        
+        nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
+        nav a { text-decoration: none; color: var(--color-text); font-weight: 500; font-size: 0.95rem; position: relative; transition: var(--transition); }
+        nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background-color: var(--color-gold); transition: width 0.3s ease; }
+        nav a:hover::after { width: 100%; }
+
+        /* B2B BRIDGE LINK */
+        nav a.b2b-link {
+            color: var(--color-gold);
+            font-weight: 700;
+            border: 1px solid var(--color-gold);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        nav a.b2b-link::after {
+            display: none; /* Elimina el subrayado animado por defecto */
+        }
+        nav a.b2b-link:hover {
+            background-color: var(--color-gold);
+            color: #1A2431;
+        }
+        /* Ajuste para la versión móvil */
+        @media (max-width: 768px) {
+            nav a.b2b-link {
+                border: none;
+                padding: 0.75rem 0;
+                background-color: transparent;
+            }
+            nav a.b2b-link:hover {
+                background-color: transparent;
+                color: var(--color-gold);
+            }
+        }
+
+        /* LANGUAGE SELECTOR */
+        .lang-selector-item {
+            list-style: none;
+        }
+        .lang-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        nav a.lang-link {
+            border: none;
+            padding: 0.35rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 4px;
+            color: var(--color-text);
+            white-space: nowrap;
+        }
+        nav a.lang-link::after {
+            display: none;
+        }
+        nav a.lang-link:hover {
+            background-color: var(--color-light);
+        }
+        nav a.lang-link.active {
+            background-color: var(--color-gold);
+            color: #1A2431;
+        }
+        @media (max-width: 768px) {
+            .lang-selector-item {
+                border-bottom: none !important;
+                padding: 0.75rem 0 !important;
+            }
+            .lang-selector {
+                justify-content: center;
+            }
+            nav a.lang-link {
+                display: inline-block;
+                padding: 0.4rem 0.9rem;
+            }
+        }
+
+        /* HAMBURGER */
+        .hamburger-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; background: none; border: none; padding: 0; }
+        .hamburger-toggle span { width: 24px; height: 2.5px; background-color: var(--color-dark); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+        .hamburger-toggle.active span:nth-child(2) { opacity: 0; }
+        .hamburger-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        @media (max-width: 768px) {
+            .hamburger-toggle { display: flex; }
+            nav { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--color-white); border-bottom: 1px solid var(--color-border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+            nav.mobile-open { max-height: 400px; }
+            nav ul { flex-direction: column; gap: 0; padding: 1.5rem 2rem; align-items: stretch; }
+            nav a { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--color-light); }
+            nav a:last-child { border-bottom: none; }
+            nav a::after { display: none; }
+            .header-container { padding: 0.75rem 2rem; }
+            .brand-name { font-size: 1.4rem; }
+            .logo { height: 70px; }
+        }
+
+        /* HERO */
+        .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop'   ) center/cover no-repeat; }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 2rem; animation: fadeInUp 1s ease 0.3s both; }
+        .hero h1 { font-family: var(--font-display); font-size: 3.5rem; color: var(--color-white); margin-bottom: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -1px; }
+        .hero-separator { width: 60px; height: 2px; background-color: var(--color-gold); margin: 0 auto 20px auto; border: none; }
+        .hero p { font-size: 1.2rem; color: rgba(255, 255, 255, 0.95); margin-bottom: 2rem; line-height: 1.8; font-weight: 300; }
+        .hero-cta { display: inline-block; background-color: var(--color-gold); color: #1A2431; padding: 1rem 2.5rem; border: none; border-radius: 4px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: var(--transition); text-decoration: none; text-transform: uppercase; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3); }
+        .hero-cta:hover { background-color: #c99d2a; transform: translateY(-2px); }
+        .hero-cta:active { transform: scale(0.98); }
+
+        @media (max-width: 768px) {
+            .hero { min-height: 400px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-on-scroll { opacity: 0; animation: fadeInUp 0.8s ease forwards; }
+
+        /* PRODUCTO ACTIVO */
+        .product-section { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; background-color: var(--color-white); }
+        .product-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .product-image-wrapper { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-image { max-width: 100%; height: auto; object-fit: contain; animation: fadeInUp 1s ease 0.5s both; }
+        .product-content h2 { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-dark); margin-bottom: 1rem; font-weight: 600; line-height: 1.2; }
+        .product-content p { font-size: 1.1rem; color: #666; margin-bottom: 2rem; line-height: 1.8; }
+        .product-bullets { list-style: none; margin-bottom: 2rem; animation: fadeInUp 1s ease 0.7s both; }
+        .product-bullets li { padding-left: 1.5rem; margin-bottom: 1rem; position: relative; font-size: 1rem; color: var(--color-text); line-height: 1.6; }
+        .product-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--color-gold); font-weight: bold; }
+        .cta-button { display: inline-block; background-color: #ff9500; color: var(--color-white); padding: 1.1rem 2.8rem; border: none; border-radius: 4px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-medium); text-decoration: none; animation: fadeInUp 1s ease 0.9s both; }
+        .cta-button:hover { background-color: #e88800; transform: translateY(-3px); }
+
+        @media (max-width: 768px) {
+            .product-container { grid-template-columns: 1fr; gap: 2rem; }
+            .product-content h2 { font-size: 2rem; }
+            .product-image-wrapper { order: -1; }
+        }
+
+        /* PRÓXIMOS LANZAMIENTOS */
+        .upcoming-section { background: linear-gradient(135deg, var(--color-light) 0%, #f5f5f5 100%); padding: 5rem 2rem; }
+        .upcoming-container { max-width: 1200px; margin: 0 auto; }
+        .section-title { font-family: var(--font-display); font-size: 2.8rem; color: var(--color-dark); text-align: center; margin-bottom: 4rem; font-weight: 600; }
+        .upcoming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .product-card { background-color: var(--color-white); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-light); transition: var(--transition); animation: fadeInUp 1s ease forwards; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
+        .card-image-wrapper { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; min-height: 280px; }
+        .card-image { max-width: 100%; height: auto; object-fit: contain; }
+        .card-badge { position: absolute; top: 1rem; right: 1rem; background-color: var(--color-gold); color: var(--color-dark); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; z-index: 10; }
+        .card-content { padding: 2rem; }
+        .card-content h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--color-dark); margin-bottom: 0.8rem; font-weight: 600; }
+        .card-content p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+        @media (max-width: 768px) { .section-title { font-size: 2rem; margin-bottom: 2rem; } .upcoming-grid { grid-template-columns: 1fr; } }
+
+        /* ABOUT & CONTACT */
+        .about-section { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-content h2 { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-dark); margin-bottom: 1.5rem; font-weight: 600; }
+        .about-content p { font-size: 1.05rem; color: #666; line-height: 1.8; margin-bottom: 2rem; }
+        .contact-box { background-color: var(--color-light); padding: 2.5rem; border-radius: 8px; border-left: 4px solid var(--color-gold); }
+        .contact-box h2 { font-family: var(--font-display); font-size: 1.8rem; color: var(--color-dark); margin-bottom: 1rem; font-weight: 600; }
+        .contact-box p { font-size: 0.95rem; color: #666; margin-bottom: 1.5rem; }
+        .contact-email { display: inline-block; color: var(--color-gold); text-decoration: none; font-weight: 600; transition: var(--transition); border-bottom: 2px solid transparent; }
+        .contact-email:hover { border-bottom-color: var(--color-gold); }
+
+        @media (max-width: 768px) { .about-section { grid-template-columns: 1fr; gap: 2rem; } .about-content h2 { font-size: 2rem; } }
+
+        /* FOOTER */
+        footer { background-color: var(--color-dark); color: rgba(255, 255, 255, 0.8); padding: 3rem 2rem 2rem; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-links { margin-bottom: 2rem; }
+        .footer-links a { color: var(--color-gold); text-decoration: none; margin: 0 1.5rem; font-size: 0.9rem; transition: var(--transition); }
+        .footer-links a:hover { color: var(--color-white); }
+        .footer-copyright { font-size: 0.85rem; opacity: 0.7; }
+
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--color-gold), transparent); margin: 4rem 0; opacity: 0.6; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="logo.png" alt="Nueva Vida Logo" class="logo">
+                <div class="brand-name">Nueva Vida</div>
+            </div>
+            <button class="hamburger-toggle" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#productos">Products</a></li>
+                    <li><a href="#launches">Coming Soon</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="https://b2b.nuevavida-ftv.de" class="b2b-link" target="_blank" rel="noopener noreferrer">For Business Customers (B2B)</a></li>
+                    <li class="lang-selector-item">
+                        <div class="lang-selector">
+                            <a href="index.html" class="lang-link">🇩🇪 DE</a>
+                            <a href="en.html" class="lang-link active">🇬🇧 EN</a>
+                            <a href="fr.html" class="lang-link">🇫🇷 FR</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Wedding Decor & Gifts for Unforgettable Moments</h1>
+            <div class="hero-separator"></div>
+            <p>Nueva Vida creates premium wedding and gift items that make special days unforgettable — for your own celebration or as a stylish surprise for your loved ones.</p>
+            <a href="#productos" class="hero-cta">Discover Now ↓</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTO ACTIVO NV1 -->
+    <section class="product-section" id="productos">
+        <div class="product-container">
+            <div class="product-image-wrapper">
+                <img src="auto-girlande-hochzeit..jpg" alt="Just Married Car Garland" class="product-image">
+            </div>
+            <div class="product-content">
+                <h2>"Just Married" Car Garland</h2>
+                <p>Whether for your own wedding car or as a surprise from the best man and maid of honor – the perfect eye-catcher for the traditional wedding car parade.</p>
+                
+                <ul class="product-bullets">
+                    <li><strong>For the Couple & Guests:</strong> The ideal premium decoration to showcase the wedding car in style.</li>
+                    <li><strong>Safe & Weatherproof:</strong> Specially designed for the drive. Stays secure and easily withstands light rain.</li>
+                    <li><strong>Paint-Safe Attachment:</strong> Attached in seconds and removed without a trace – no scratches.</li>
+                </ul>
+
+                <!-- PRUEBA SOCIAL INYECTADA -->
+                <div class="social-proof" style="margin-bottom: 1.5rem;">
+                    <div class="stars" style="font-size: 1.4rem; letter-spacing: 2px; line-height: 1;">
+                        <span style="color: #FFA41C;">★★★★</span><span style="background: linear-gradient(90deg, #FFA41C 40%, #e0e0e0 40%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">★</span>
+                    </div>
+                    <div style="font-size: 0.95rem; color: var(--color-dark); font-weight: 600; margin-top: 4px;">Excellent Quality</div>
+                </div>
+
+                <!-- PRECIO INYECTADO -->
+                <div class="product-price" style="font-size: 2.2rem; font-weight: 700; color: var(--color-dark); margin-bottom: 1.5rem; font-family: var(--font-display);">
+                    €38.99 <span style="font-size: 0.9rem; font-weight: 400; color: #666; font-family: var(--font-body);">incl. VAT</span>
+                </div>
+
+                <!-- BOTÓN ACTUALIZADO CON ID -->
+                <a href="https://www.amazon.de/dp/B0CP4DKL3V" target="_blank" class="cta-button" id="amazon-buy-btn">Buy on Amazon 🛒</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PRODUCTO ACTIVO NV3 - INFINITY ROSE HEART -->
+    <section class="product-section" id="infinity-rose">
+        <div class="product-container">
+            <div class="product-image-wrapper">
+                <img src="infinity-rose-heart-box.png" alt="Infinity Rose Heart" class="product-image">
+            </div>
+            <div class="product-content">
+                <h2>Infinity Rose Heart</h2>
+                <p>7 real roses, preserved using a special process, in an elegant heart-shaped box. A symbol of eternal love that blooms flawlessly for 1 to 3 years – with zero maintenance.</p>
+
+                <ul class="product-bullets">
+                    <li><strong>Real Preserved Roses:</strong> 7 hand-selected premium roses that retain their natural beauty for years.</li>
+                    <li><strong>Elegant Heart Box:</strong> The perfect, stylish presentation for an unforgettable gift to your loved ones.</li>
+                    <li><strong>100% Maintenance-Free:</strong> No water or sunlight needed – the roses bloom flawlessly, always.</li>
+                </ul>
+
+                <!-- PRUEBA SOCIAL -->
+                <div class="social-proof" style="margin-bottom: 1.5rem;">
+                    <div class="stars" style="font-size: 1.4rem; letter-spacing: 2px; line-height: 1;">
+                        <span style="color: #FFA41C;">★★★★★</span>
+                    </div>
+                    <div style="font-size: 0.95rem; color: var(--color-dark); font-weight: 600; margin-top: 4px;">The Perfect Gift</div>
+                </div>
+
+                <!-- PRECIO -->
+                <div class="product-price" style="font-size: 2.2rem; font-weight: 700; color: var(--color-dark); margin-bottom: 1.5rem; font-family: var(--font-display);">
+                    €29.99 <span style="font-size: 0.9rem; font-weight: 400; color: #666; font-family: var(--font-body);">incl. VAT</span>
+                </div>
+
+                <!-- BOTÓN CON ID -->
+                <a href="https://www.amazon.de/dp/B0H73CGJKY" target="_blank" class="cta-button" id="amazon-buy-btn-nv3">Buy on Amazon 🛒</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PRÓXIMOS LANZAMIENTOS -->
+    <section class="upcoming-section" id="launches">
+        <div class="upcoming-container">
+            <h2 class="section-title">Coming Soon to Our Collection</h2>
+            <div class="upcoming-grid">
+                <div class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="premium-hochzeitsgirlande.png" alt="Premium Wedding Garland" class="card-image">
+                        <span class="card-badge">In Development - ETA 2027</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Premium Wedding Garland</h3>
+                        <p>The next generation of our wedding decorations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ABOUT & CONTACT -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>About Nueva Vida</h2>
+            <p>We believe that the best gifts and celebrations become unforgettable through the small details. As a specialized brand for wedding and premium gift items, we place the highest value on quality, design, and reliability.</p>
+        </div>
+        <div class="contact-box">
+            <h2>Contact</h2>
+            <p>Do you have questions about our products? We're here for you.</p>
+            <a href="mailto:info@nuevavida-ftv.de" class="contact-email">info@nuevavida-ftv.de</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="impressum.html">Legal Notice</a>
+                <a href="datenschutz.html">Privacy Policy</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 Nueva Vida. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn'   );
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('mobile-open');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('mobile-open');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-on-scroll');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        document.querySelectorAll('.product-section, .upcoming-section, .about-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // --- SCRIPT DE AMAZON ATTRIBUTION ---
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Leer de dónde viene el usuario
+            const urlParams = new URLSearchParams(window.location.search);
+            const origen = urlParams.get('origen');
+            
+            // IMPORTANTE: El botón de compra debe tener el id="amazon-buy-btn"
+            const btnAmazon = document.getElementById('amazon-buy-btn');
+
+            // 2. Enlaces de Amazon Attribution para NV1 (Guirnalda)
+            const NV1_Default = "https://www.amazon.de/dp/B0CP4DKL3V?maas=maas_adg_EFBB0BE4C288392F039F7B1DEF691D16_afap_abs&ref_=aa_maas&tag=maas";
+            const NV1_PIN = "https://www.amazon.de/dp/B0CP4DKL3V?maas=maas_adg_6BC10B873E586FAF236D5E0C9EC26CF2_afap_abs&ref_=aa_maas&tag=maas";
+            const NV1_IG = "https://www.amazon.de/dp/B0CP4DKL3V?maas=maas_adg_F7991E055DF297F5232E4B91D6D6E294_afap_abs&ref_=aa_maas&tag=maas";
+
+            // 3. Cambiar el botón dinámicamente
+            if (btnAmazon  ) {
+                if (origen === 'ig') {
+                    btnAmazon.href = NV1_IG;
+                } else if (origen === 'pin') {
+                    btnAmazon.href = NV1_PIN;
+                } else {
+                    btnAmazon.href = NV1_Default;
+                }
+            }
+
+            // --- NV3: Infinity Rose Heart ---
+            const btnAmazonNV3 = document.getElementById('amazon-buy-btn-nv3');
+
+            // Enlaces de Amazon Attribution para NV3 (Infinity Rose Heart)
+            // Por ahora los 3 apuntan al enlace estándar hasta generar los links de Attribution específicos
+            const NV3_Default = "https://www.amazon.de/dp/B0H73CGJKY";
+            const NV3_PIN = "https://www.amazon.de/dp/B0H73CGJKY";
+            const NV3_IG = "https://www.amazon.de/dp/B0H73CGJKY";
+
+            if (btnAmazonNV3) {
+                if (origen === 'ig') {
+                    btnAmazonNV3.href = NV3_IG;
+                } else if (origen === 'pin') {
+                    btnAmazonNV3.href = NV3_PIN;
+                } else {
+                    btnAmazonNV3.href = NV3_Default;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
