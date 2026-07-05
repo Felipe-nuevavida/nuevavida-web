@@ -86,6 +86,48 @@
             }
         }
 
+        /* LANGUAGE SELECTOR */
+        .lang-selector-item {
+            list-style: none;
+        }
+        .lang-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        nav a.lang-link {
+            border: none;
+            padding: 0.35rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 4px;
+            color: var(--color-text);
+            white-space: nowrap;
+        }
+        nav a.lang-link::after {
+            display: none;
+        }
+        nav a.lang-link:hover {
+            background-color: var(--color-light);
+        }
+        nav a.lang-link.active {
+            background-color: var(--color-gold);
+            color: #1A2431;
+        }
+        @media (max-width: 768px) {
+            .lang-selector-item {
+                border-bottom: none !important;
+                padding: 0.75rem 0 !important;
+            }
+            .lang-selector {
+                justify-content: center;
+            }
+            nav a.lang-link {
+                display: inline-block;
+                padding: 0.4rem 0.9rem;
+            }
+        }
+
         /* HAMBURGER */
         .hamburger-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; background: none; border: none; padding: 0; }
         .hamburger-toggle span { width: 24px; height: 2.5px; background-color: var(--color-dark); border-radius: 2px; transition: all 0.3s ease; }
@@ -96,7 +138,7 @@
         @media (max-width: 768px) {
             .hamburger-toggle { display: flex; }
             nav { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--color-white); border-bottom: 1px solid var(--color-border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
-            nav.mobile-open { max-height: 300px; }
+            nav.mobile-open { max-height: 400px; }
             nav ul { flex-direction: column; gap: 0; padding: 1.5rem 2rem; align-items: stretch; }
             nav a { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--color-light); }
             nav a:last-child { border-bottom: none; }
@@ -201,6 +243,13 @@
                     <li><a href="#launches">Bald erhältlich</a></li>
                     <li><a href="#about">Über uns</a></li>
                     <li><a href="https://b2b.nuevavida-ftv.de" class="b2b-link" target="_blank" rel="noopener noreferrer">Für Firmenkunden (B2B)</a></li>
+                    <li class="lang-selector-item">
+                        <div class="lang-selector">
+                            <a href="index.html" class="lang-link active">🇩🇪 DE</a>
+                            <a href="en.html" class="lang-link">🇬🇧 EN</a>
+                            <a href="fr.html" class="lang-link">🇫🇷 FR</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
