@@ -2,16 +2,18 @@
  * Nueva Vida – gestor compartido de privacidad y consentimiento.
  *
  * La clave se guarda únicamente en el navegador del visitante y se comparte
- * entre las páginas DE, EN y FR del mismo origen: shop.nuevavida-ftv.de.
- * Si en el futuro se añade un servicio opcional, declárelo antes de este
- * archivo en window.NuevaVidaCookieConsentConfig.services y aumente version.
+ * entre las páginas DE, EN y FR del mismo origen. Configure consentimiento,
+ * alcance y servicios antes de este archivo en
+ * window.NuevaVidaCookieConsentConfig.
  */
 (() => {
     "use strict";
 
     const defaultConfig = {
         version: "2026-08-16-multilingual-v1",
-        consentKey: "nv_shop_privacy_choice",
+        consentKey: "nv_privacy_choice",
+        scope: "language-shared",
+        privacyUrl: "datenschutz.html",
         services: []
     };
 
@@ -54,6 +56,7 @@
             preferences: "Einstellungen",
             footerPreferences: "Datenschutz-Einstellungen",
             withdrawal: "Sie können Ihre Einwilligung jederzeit über „Datenschutz-Einstellungen“ im Seitenfuß ändern oder widerrufen.",
+            privacyPolicy: "Datenschutzerklärung",
             categories: { statistics: "Statistik", marketing: "Marketing", external_media: "Externe Medien", preferences: "Präferenzen" }
         },
         en: {
@@ -75,6 +78,7 @@
             preferences: "Settings",
             footerPreferences: "Privacy settings",
             withdrawal: "You can change or withdraw your consent at any time using “Privacy settings” in the page footer.",
+            privacyPolicy: "Privacy Policy",
             categories: { statistics: "Statistics", marketing: "Marketing", external_media: "External media", preferences: "Preferences" }
         },
         fr: {
@@ -96,6 +100,7 @@
             preferences: "Paramètres",
             footerPreferences: "Paramètres de confidentialité",
             withdrawal: "Vous pouvez modifier ou retirer votre consentement à tout moment via « Paramètres de confidentialité » dans le pied de page.",
+            privacyPolicy: "Politique de confidentialité",
             categories: { statistics: "Statistiques", marketing: "Marketing", external_media: "Médias externes", preferences: "Préférences" }
         }
     }[language];
@@ -115,7 +120,7 @@
             mode,
             choices,
             timestamp: new Date().toISOString(),
-            scope: "shop-language-shared"
+            scope: config.scope
         };
         try {
             window.localStorage.setItem(config.consentKey, JSON.stringify(state));
@@ -128,15 +133,20 @@
 
     function hasCurrentState() {
         const state = readState();
-        return Boolean(state && state.version === config.version && state.scope === "shop-language-shared");
+        return Boolean(state && state.version === config.version && state.scope === config.scope);
     }
 
     function loadConsentedServices(state) {
         if (!state || !state.choices) return;
         optionalServices.forEach((service) => {
-            if (state.choices[service.category] === true && !service.__loaded) {
-                service.__loaded = true;
-                service.load();
+            if (state.choices[service.category] === true) {
+                if (typeof service.enable === "function") service.enable();
+                if (!service.__loaded) {
+                    service.__loaded = true;
+                    service.load();
+                }
+            } else if (typeof service.disable === "function") {
+                service.disable();
             }
         });
     }
@@ -168,6 +178,7 @@
             .nv-cookie-toggle input { width: 1.15rem; height: 1.15rem; accent-color: #2c3e50; }
             .nv-cookie-category ul { margin: .7rem 0 0 1.1rem; color: #4a4a4a; font-size: .9rem; }
             .nv-cookie-note { margin-top: 1.25rem; }
+            .nv-cookie-policy-link { color: #8c6a00; font-weight: 700; }
             .nv-cookie-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .75rem; margin-top: 1.25rem; }
             .nv-cookie-button { min-height: 44px; border-radius: 4px; padding: .7rem 1rem; font: inherit; font-weight: 700; cursor: pointer; transition: background .2s ease, border-color .2s ease; }
             .nv-cookie-button-primary { border: 2px solid #d4af37; background: #d4af37; color: #1a2431; }
@@ -236,7 +247,7 @@
                 <div class="nv-cookie-header"><h2 id="nv-cookie-title">${copy.consentTitle}</h2><button class="nv-cookie-close" type="button" data-nv-close aria-label="${copy.close}">×</button></div>
                 <p id="nv-cookie-description">${copy.consentText}</p>
                 ${categories}
-                <p class="nv-cookie-note">${copy.withdrawal}</p>
+                <p class="nv-cookie-note">${copy.withdrawal} <a class="nv-cookie-policy-link" href="${escapeAttribute(config.privacyUrl)}">${copy.privacyPolicy}</a></p>
                 <div class="nv-cookie-actions"><button class="nv-cookie-button nv-cookie-button-secondary" type="button" data-nv-reject>${copy.reject}</button><button class="nv-cookie-button nv-cookie-button-primary" type="button" data-nv-save>${copy.save}</button></div>
             </div>`;
         dialog.querySelectorAll("[data-nv-close]").forEach((button) => button.addEventListener("click", closeDialog));
@@ -289,7 +300,7 @@
         banner.setAttribute("role", "region");
         banner.setAttribute("aria-label", copy.consentTitle);
         banner.innerHTML = `
-            <div><h2>${copy.consentTitle}</h2><p>${copy.consentText} ${categories}.</p></div>
+            <div><h2>${copy.consentTitle}</h2><p>${copy.consentText} ${categories}. <a class="nv-cookie-policy-link" href="${escapeAttribute(config.privacyUrl)}">${copy.privacyPolicy}</a></p></div>
             <div class="nv-cookie-actions"><button class="nv-cookie-button nv-cookie-button-secondary" type="button" data-nv-reject>${copy.reject}</button><button class="nv-cookie-button nv-cookie-button-secondary" type="button" data-nv-preferences>${copy.preferences}</button><button class="nv-cookie-button nv-cookie-button-primary" type="button" data-nv-accept>${copy.accept}</button></div>`;
         document.body.appendChild(banner);
         banner.querySelector("[data-nv-reject]")?.addEventListener("click", () => {
@@ -305,7 +316,7 @@
 
     function installPreferencesLink() {
         if (!hasOptionalServices || document.getElementById("nv-cookie-settings")) return;
-        const footer = document.querySelector(".footer-links");
+        const footer = document.querySelector(".footer-links, footer .space-x-6");
         if (!footer) return;
         const button = document.createElement("button");
         button.type = "button";

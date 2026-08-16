@@ -386,6 +386,41 @@
         </div>
     </footer>
 
+    <!-- Google Analytics 4 soumis au consentement : aucune requête avant l’acceptation de Statistiques. -->
+    <script>
+        window.NuevaVidaCookieConsentConfig = {
+            version: "2026-08-16-ga4-v2",
+            consentKey: "nv_shop_privacy_choice",
+            scope: "shop-language-shared",
+            privacyUrl: "datenschutz-fr.html",
+            services: [{
+                id: "google-analytics-4",
+                category: "statistics",
+                name: "Google Analytics 4",
+                provider: "Google Ireland Limited",
+                purpose: "Analyse statistique de l’utilisation de notre site internet",
+                enable: function () { window["ga-disable-G-V5C78VMH6P"] = false; },
+                disable: function () { window["ga-disable-G-V5C78VMH6P"] = true; },
+                load: function () {
+                    if (window.__nvGa4ShopLoaded) return;
+                    window.__nvGa4ShopLoaded = true;
+                    window.dataLayer = window.dataLayer || [];
+                    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+                    window.gtag("js", new Date());
+                    window.gtag("config", "G-V5C78VMH6P", {
+                        anonymize_ip: true,
+                        allow_google_signals: false,
+                        allow_ad_personalization_signals: false
+                    });
+                    const tag = document.createElement("script");
+                    tag.async = true;
+                    tag.src = "https://www.googletagmanager.com/gtag/js?id=G-V5C78VMH6P";
+                    document.head.appendChild(tag);
+                }
+            }]
+        };
+    </script>
+
     <!-- Gestionnaire partagé de confidentialité et de consentement -->
     <script src="cookie-consent.js" defer></script>
 
