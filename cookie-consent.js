@@ -1,8 +1,8 @@
 /*
  * Nueva Vida – gestor local de consentimiento (DE)
  *
- * Estado actual: no hay servicios opcionales configurados. Por ello no se
- * muestra un banner ni se escribe localStorage durante la visita normal.
+ * Estado actual: no hay servicios opcionales configurados. Por ello se muestra
+ * un aviso informativo visible, pero no se escribe localStorage durante la visita normal.
  * Para habilitar una tecnología no esencial, declare antes de este archivo:
  *
  * window.NuevaVidaCookieConsentConfig = {
@@ -21,7 +21,7 @@
     "use strict";
 
     const defaultConfig = {
-        version: "2026-08-16",
+        version: "2026-08-16-visible-notice",
         consentKey: "nv_cookie_consent",
         services: []
     };
@@ -126,7 +126,7 @@
                         <h2 id="nv-cookie-title">Datenschutz-Einstellungen</h2>
                         <button class="nv-cookie-close" type="button" data-nv-close aria-label="Dialog schließen">×</button>
                     </div>
-                    <p id="nv-cookie-description">Auf dieser Seite werden derzeit keine Cookies oder vergleichbaren Technologien für Statistik, Marketing oder externe Medien eingesetzt. Deshalb erscheint kein Einwilligungsbanner und es wird kein Einwilligungsstatus gespeichert.</p>
+                    <p id="nv-cookie-description">Auf dieser Seite werden derzeit keine Cookies oder vergleichbaren Technologien für Statistik, Marketing oder externe Medien eingesetzt. Der sichtbare Datenschutz-Hinweis auf der Startseite ist daher keine Einwilligungsabfrage; er informiert über diesen aktuellen Stand.</p>
                     <section class="nv-cookie-category" aria-label="Technisch erforderliche Funktionen">
                         <h3>Technisch erforderliche Funktionen</h3>
                         <p>Die Website wird über GitHub Pages bereitgestellt. Serverprotokolle können zur Sicherheit und für den technischen Betrieb verarbeitet werden. Diese Vorgänge werden nicht über dieses Einstellungsfenster gesteuert.</p>
@@ -170,6 +170,34 @@
         }
 
         bindDialogEvents();
+    }
+
+    function dismissPrivacyNotice() {
+        const notice = document.getElementById("nv-privacy-notice");
+        if (notice) notice.remove();
+    }
+
+    function renderPrivacyNotice() {
+        if (hasOptionalServices || document.getElementById("nv-privacy-notice")) return;
+        const notice = document.createElement("section");
+        notice.id = "nv-privacy-notice";
+        notice.className = "nv-cookie-banner nv-privacy-notice";
+        notice.setAttribute("role", "region");
+        notice.setAttribute("aria-label", "Hinweis zu Cookies und Datenschutz");
+        notice.innerHTML = `
+            <div>
+                <h2>Hinweis zu Cookies &amp; Datenschutz</h2>
+                <p>Diese Website verwendet derzeit keine Cookies oder vergleichbaren Technologien für Statistik, Marketing oder externe Medien. Der Hinweis dient Ihrer Information und ist keine Einwilligungsabfrage.</p>
+            </div>
+            <div class="nv-cookie-actions">
+                <button class="nv-cookie-button nv-cookie-button-secondary" type="button" data-nv-info>Details</button>
+                <button class="nv-cookie-button nv-cookie-button-primary" type="button" data-nv-dismiss-notice>Verstanden</button>
+            </div>`;
+        document.body.appendChild(notice);
+        const details = notice.querySelector("[data-nv-info]");
+        const dismiss = notice.querySelector("[data-nv-dismiss-notice]");
+        if (details) details.addEventListener("click", openPreferences);
+        if (dismiss) dismiss.addEventListener("click", dismissPrivacyNotice);
     }
 
     function renderBanner() {
@@ -269,6 +297,8 @@
             } else {
                 renderBanner();
             }
+        } else {
+            renderPrivacyNotice();
         }
     }
 
