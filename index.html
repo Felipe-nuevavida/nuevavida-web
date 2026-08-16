@@ -221,25 +221,13 @@
         .footer-links { margin-bottom: 2rem; }
         .footer-links a { color: var(--color-gold); text-decoration: none; margin: 0 1.5rem; font-size: 0.9rem; transition: var(--transition); }
         .footer-links a:hover { color: var(--color-white); }
+        .footer-cookie-button { appearance: none; border: 0; background: transparent; color: var(--color-gold); font: inherit; font-size: 0.9rem; cursor: pointer; padding: 0; margin: 0 1.5rem; transition: var(--transition); }
+        .footer-cookie-button:hover, .footer-cookie-button:focus-visible { color: var(--color-white); text-decoration: underline; }
         .footer-copyright { font-size: 0.85rem; opacity: 0.7; }
 
         .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--color-gold), transparent); margin: 4rem 0; opacity: 0.6; }
 
-        /* DATENSCHUTZ-EINSTELLUNGEN */
-        .footer-cookie-button {
-            appearance: none;
-            border: 0;
-            background: transparent;
-            color: var(--color-gold);
-            font: inherit;
-            font-size: 0.9rem;
-            cursor: pointer;
-            padding: 0;
-            margin: 0 1.5rem;
-            transition: var(--transition);
-        }
-        .footer-cookie-button:hover, .footer-cookie-button:focus-visible { color: var(--color-white); text-decoration: underline; }
-        .footer-cookie-button:focus-visible, .nv-cookie-button:focus-visible, .nv-cookie-close:focus-visible { outline: 3px solid #1a73e8; outline-offset: 3px; }
+        .nv-cookie-button:focus-visible, .nv-cookie-close:focus-visible { outline: 3px solid #1a73e8; outline-offset: 3px; }
         .nv-cookie-dialog-open { overflow: hidden; }
         #nv-cookie-dialog[hidden] { display: none; }
         #nv-cookie-dialog { position: fixed; inset: 0; z-index: 3000; display: grid; place-items: center; padding: 1.25rem; background: rgba(18, 28, 38, 0.68); }
@@ -430,7 +418,6 @@
             <div class="footer-links">
                 <a href="impressum.html">Impressum</a>
                 <a href="datenschutz.html">Datenschutz</a>
-                <button type="button" class="footer-cookie-button" id="nv-cookie-settings">Datenschutz-Einstellungen</button>
             </div>
             <div class="footer-copyright">
                 &copy; 2026 Nueva Vida. Alle Rechte vorbehalten.

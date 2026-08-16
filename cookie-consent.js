@@ -276,21 +276,29 @@
         return escapeHtml(value).replace(/`/g, "&#96;");
     }
 
+    function installPersistentPreferencesLink() {
+        if (!hasOptionalServices || document.getElementById("nv-cookie-settings")) return;
+        const footerLinks = document.querySelector(".footer-links");
+        if (!footerLinks) return;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "footer-cookie-button";
+        button.id = "nv-cookie-settings";
+        button.textContent = "Datenschutz-Einstellungen";
+        button.addEventListener("click", openPreferences);
+        footerLinks.appendChild(button);
+    }
+
     function initialize() {
         if (initialized) return;
         initialized = true;
-
-        const footerLink = document.getElementById("nv-cookie-settings");
-        if (footerLink) footerLink.addEventListener("click", (event) => {
-            event.preventDefault();
-            openPreferences();
-        });
 
         document.addEventListener("keydown", (event) => {
             if (event.key === "Escape" && getDialog() && !getDialog().hidden) closeDialog();
         });
 
         if (hasOptionalServices) {
+            installPersistentPreferencesLink();
             const consent = readConsent();
             if (consent && consent.version === config.version) {
                 loadConsentedServices(consent);
