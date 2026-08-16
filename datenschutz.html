@@ -3,28 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>Datenschutzerklärung | Nueva Vida</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        h1, h2 { color: #2c3e50; margin-top: 30px; }
-        a { color: #d4af37; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .back-link { display: inline-block; margin-bottom: 30px; font-weight: bold; }
+        :root { --color-dark: #2c3e50; --color-gold: #d4af37; --color-text: #3a3a3a; --color-light: #f9f9f9; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; line-height: 1.65; color: var(--color-text); max-width: 880px; margin: 0 auto; padding: 48px 20px; }
+        h1, h2, h3 { color: var(--color-dark); line-height: 1.25; }
+        h1 { margin-bottom: 0.25rem; }
+        h2 { margin-top: 2.25rem; }
+        h3 { margin-top: 1.35rem; font-size: 1.1rem; }
+        a { color: #8c6a00; font-weight: 600; }
+        a:hover { color: var(--color-dark); }
+        .back-link { display: inline-block; margin-bottom: 28px; font-weight: 700; }
+        .notice { padding: 18px 20px; background: var(--color-light); border-left: 4px solid var(--color-gold); }
+        .updated { color: #666; font-size: 0.95rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.75rem; border: 1px solid #ddd; vertical-align: top; text-align: left; }
+        th { background: var(--color-light); color: var(--color-dark); }
+        @media (max-width: 600px) { body { padding: 32px 16px; } th, td { font-size: 0.92rem; } }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-link">← Zurück zur Startseite</a>
-    
+
     <h1>Datenschutzerklärung</h1>
-    
-    <h2>1. Datenschutz auf einen Blick</h2>
-    <h3>Allgemeine Hinweise</h3>
-    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-    
-    <h2>2. Hosting (GitHub Pages)</h2>
-    <p>Wir hosten unsere Website bei GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. Wenn Sie unsere Website besuchen, erfasst GitHub IP-Adressen und Logfiles, um die Sicherheit und den Betrieb der Server zu gewährleisten. Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">GitHub Privacy Statement</a>.</p>
-    
-    <h2>3. Kontakt per E-Mail</h2>
-    <p>Wenn Sie uns per E-Mail kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage ) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+    <p class="updated">Stand: 16. August 2026</p>
+
+    <div class="notice">
+        <strong>Kurzfassung:</strong> Diese Website verwendet derzeit keine Cookies oder vergleichbaren Technologien für Statistik, Marketing oder externe Medien. Deshalb wird beim normalen Besuch kein Einwilligungsbanner angezeigt und kein Einwilligungsstatus gespeichert. Technisch erforderliche Vorgänge beim Hosting bleiben hiervon unberührt.
+    </div>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>
+        Felipe Rodríguez Alonso<br>
+        Nueva Vida<br>
+        Lundenweg 13<br>
+        30539 Hannover<br>
+        Deutschland
+    </p>
+    <p>E-Mail: <a href="mailto:info@nuevavida-ftv.de">info@nuevavida-ftv.de</a></p>
+
+    <h2>2. Verarbeitung beim Aufruf dieser Website</h2>
+    <p>Beim rein informatorischen Besuch verarbeitet unser Hosting-Anbieter technisch erforderliche Verbindungsdaten, insbesondere die IP-Adresse, Datum und Uhrzeit des Abrufs, angeforderte Datei beziehungsweise Seite, Referrer-Informationen, Browser- und Betriebssysteminformationen sowie Server-Protokolldaten. Die Verarbeitung ist erforderlich, um die Website auszuliefern, ihre Sicherheit und Stabilität zu gewährleisten und Angriffe abzuwehren.</p>
+    <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der sicheren und funktionsfähigen Bereitstellung dieses Online-Angebots. Soweit der Zugriff auf Ihr Endgerät hierfür technisch unbedingt erforderlich ist, erfolgt er im Rahmen der gesetzlichen Ausnahme für technisch erforderliche Vorgänge.</p>
+
+    <h2>3. Hosting über GitHub Pages</h2>
+    <p>Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. Bei jedem Abruf werden die unter Ziffer 2 genannten Daten technisch an GitHub übermittelt und dort verarbeitet. Eine Übermittlung in die USA kann nicht ausgeschlossen werden. Weitere Informationen zur Datenverarbeitung durch GitHub finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.</p>
+
+    <h2>4. Cookies, Local Storage und Einwilligungsverwaltung</h2>
+    <p>Auf der deutschen Shop-Startseite sind derzeit keine Dienste für Statistik, Marketing, externe Medien oder personalisierte Werbung eingebunden. Daher setzen wir für diese Zwecke keine Cookies, kein Local Storage und keine vergleichbaren Technologien ein.</p>
+    <p>Die Seite enthält einen lokal ausgelieferten Bereich „Datenschutz-Einstellungen“ im Seitenfuß. Er informiert transparent über den aktuellen Stand. Erst wenn künftig optionale Dienste eingebunden werden, erscheint vor deren Laden ein Einwilligungsbanner mit einer gleichwertigen Auswahl zwischen „Alle akzeptieren“ und „Ohne Einwilligung weiter“. In diesem Fall speichern wir ausschließlich die von Ihnen getroffene Auswahl, den Zeitpunkt und die Version der Einstellungen lokal in Ihrem Browser, damit die Auswahl berücksichtigt werden kann. Diese Einwilligung kann dann jederzeit über „Datenschutz-Einstellungen“ widerrufen oder geändert werden.</p>
+    <p>Technisch erforderliche Funktionen, Sicherheitsmaßnahmen und die Auslieferung der Website sind nicht Gegenstand einer Einwilligung. Über sie informieren wir in dieser Erklärung.</p>
+
+    <h2>5. Links zu Amazon</h2>
+    <p>Unsere Schaltflächen „Auf Amazon kaufen“ sind einfache Links zu Amazon.de. Erst wenn Sie eine solche Schaltfläche aktiv anklicken, wird eine Verbindung zu Amazon hergestellt. Dabei erhält Amazon mindestens Ihre IP-Adresse sowie die Information, von welcher Seite der Link aufgerufen wurde. Für die weitere Verarbeitung ist Amazon verantwortlich. Es gelten die Datenschutzinformationen von <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ" target="_blank" rel="noopener noreferrer">Amazon</a>.</p>
+
+    <h2>6. Kontakt per E-Mail</h2>
+    <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen übermittelten Daten, einschließlich Ihrer E-Mail-Adresse und des Inhalts Ihrer Anfrage. Die Verarbeitung erfolgt zur Bearbeitung und Beantwortung Ihres Anliegens. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf den Abschluss oder die Durchführung eines Vertrags gerichtet ist; im Übrigen Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse ist die sachgerechte Kommunikation mit Ihnen.</p>
+    <p>Wir löschen die Daten, wenn die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+    <h2>7. Empfänger und Speicherdauer</h2>
+    <table>
+        <thead>
+            <tr><th>Verarbeitung</th><th>Empfänger</th><th>Speicherdauer</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Technische Bereitstellung und Sicherheitsprotokolle</td><td>GitHub Pages / GitHub</td><td>Nach den technisch und rechtlich erforderlichen Fristen des Hosting-Anbieters</td></tr>
+            <tr><td>E-Mail-Anfragen</td><td>Interne zuständige Stelle und eingesetzter E-Mail-Dienstleister</td><td>Bis zur abschließenden Bearbeitung, sofern keine gesetzliche Aufbewahrungspflicht besteht</td></tr>
+            <tr><td>Optionale Dienste (derzeit nicht aktiv)</td><td>Erst bei späterer Aktivierung: in den Datenschutz-Einstellungen benannter Dienst</td><td>Wird vor der Einwilligung transparent angegeben</td></tr>
+        </tbody>
+    </table>
+
+    <h2>8. Ihre Rechte</h2>
+    <p>Sie haben im Rahmen der gesetzlichen Voraussetzungen das Recht auf Auskunft über die Sie betreffenden personenbezogenen Daten (Art. 15 DSGVO), Berichtigung unrichtiger Daten (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) und Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. e oder f DSGVO (Art. 21 DSGVO). Soweit eine Verarbeitung auf Ihrer Einwilligung beruht, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3 DSGVO).</p>
+    <p>Zur Ausübung Ihrer Rechte genügt eine Nachricht an <a href="mailto:info@nuevavida-ftv.de">info@nuevavida-ftv.de</a>.</p>
+
+    <h2>9. Beschwerderecht</h2>
+    <p>Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Zuständig für unser Unternehmen ist insbesondere:</p>
+    <p>
+        Der Landesbeauftragte für den Datenschutz Niedersachsen<br>
+        Prinzenstraße 5<br>
+        30159 Hannover<br>
+        Website: <a href="https://lfd.niedersachsen.de" target="_blank" rel="noopener noreferrer">lfd.niedersachsen.de</a>
+    </p>
+
+    <h2>10. Änderungen dieser Datenschutzerklärung</h2>
+    <p>Wir passen diese Datenschutzerklärung an, wenn sich die eingesetzten Technologien, die Verarbeitungsvorgänge oder die Rechtslage ändern. Die jeweils aktuelle Fassung ist auf dieser Seite abrufbar.</p>
 </body>
 </html>

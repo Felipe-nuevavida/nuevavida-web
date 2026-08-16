@@ -149,7 +149,7 @@
         }
 
         /* HERO */
-        .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop'   ) center/cover no-repeat; }
+        .hero { position: relative; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(26, 37, 47, 0.85)), url('hero-hochzeit.jpg') center/cover no-repeat; }
         .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 2rem; animation: fadeInUp 1s ease 0.3s both; }
         .hero h1 { font-family: var(--font-display); font-size: 3.5rem; color: var(--color-white); margin-bottom: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -1px; }
         .hero-separator { width: 60px; height: 2px; background-color: var(--color-gold); margin: 0 auto 20px auto; border: none; }
@@ -224,6 +224,57 @@
         .footer-copyright { font-size: 0.85rem; opacity: 0.7; }
 
         .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--color-gold), transparent); margin: 4rem 0; opacity: 0.6; }
+
+        /* DATENSCHUTZ-EINSTELLUNGEN */
+        .footer-cookie-button {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: var(--color-gold);
+            font: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 0;
+            margin: 0 1.5rem;
+            transition: var(--transition);
+        }
+        .footer-cookie-button:hover, .footer-cookie-button:focus-visible { color: var(--color-white); text-decoration: underline; }
+        .footer-cookie-button:focus-visible, .nv-cookie-button:focus-visible, .nv-cookie-close:focus-visible { outline: 3px solid #1a73e8; outline-offset: 3px; }
+        .nv-cookie-dialog-open { overflow: hidden; }
+        #nv-cookie-dialog[hidden] { display: none; }
+        #nv-cookie-dialog { position: fixed; inset: 0; z-index: 3000; display: grid; place-items: center; padding: 1.25rem; background: rgba(18, 28, 38, 0.68); }
+        .nv-cookie-panel { width: min(100%, 680px); max-height: min(720px, calc(100vh - 2.5rem)); overflow-y: auto; background: var(--color-white); color: var(--color-text); border-radius: 10px; box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28); padding: 1.5rem; }
+        .nv-cookie-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+        .nv-cookie-header h2 { color: var(--color-dark); font-family: var(--font-display); font-size: 1.8rem; line-height: 1.2; }
+        .nv-cookie-close { appearance: none; border: 0; background: transparent; color: var(--color-dark); cursor: pointer; font-size: 2rem; line-height: 1; padding: 0.1rem 0.35rem; }
+        .nv-cookie-panel p { color: #4a4a4a; font-size: 0.95rem; line-height: 1.65; }
+        .nv-cookie-category { margin-top: 1.25rem; padding: 1rem; background: var(--color-light); border-left: 4px solid var(--color-gold); }
+        .nv-cookie-category h3, .nv-cookie-toggle { color: var(--color-dark); font-size: 1rem; font-weight: 700; }
+        .nv-cookie-toggle { display: flex; align-items: center; gap: 0.65rem; cursor: pointer; }
+        .nv-cookie-toggle input { width: 1.15rem; height: 1.15rem; accent-color: var(--color-dark); }
+        .nv-cookie-category ul { margin: 0.7rem 0 0 1.1rem; color: #4a4a4a; font-size: 0.9rem; }
+        .nv-cookie-category a { color: var(--color-dark); text-decoration: underline; }
+        .nv-cookie-note { margin-top: 1.25rem; }
+        .nv-cookie-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem; }
+        .nv-cookie-actions-single { justify-content: flex-end; }
+        .nv-cookie-button { min-height: 44px; border-radius: 4px; padding: 0.7rem 1rem; font: inherit; font-weight: 700; cursor: pointer; transition: var(--transition); }
+        .nv-cookie-button-primary { border: 2px solid var(--color-gold); background: var(--color-gold); color: #1a2431; }
+        .nv-cookie-button-primary:hover { background: #c99d2a; border-color: #c99d2a; }
+        .nv-cookie-button-secondary { border: 2px solid var(--color-dark); background: var(--color-white); color: var(--color-dark); }
+        .nv-cookie-button-secondary:hover { background: #eef1f3; }
+        .nv-cookie-banner { position: fixed; z-index: 2900; right: 1rem; bottom: 1rem; left: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; max-width: 1100px; margin: 0 auto; padding: 1.25rem; background: var(--color-white); color: var(--color-text); border: 1px solid var(--color-border); border-left: 5px solid var(--color-gold); border-radius: 8px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22); }
+        .nv-cookie-banner h2 { color: var(--color-dark); font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 0.35rem; }
+        .nv-cookie-banner p { max-width: 660px; font-size: 0.92rem; line-height: 1.55; }
+        .nv-cookie-banner a { color: var(--color-dark); font-weight: 700; }
+        .nv-cookie-banner .nv-cookie-actions { margin-top: 0; flex-shrink: 0; }
+        @media (max-width: 768px) {
+            .footer-cookie-button { margin: 0 0.6rem; }
+            .nv-cookie-banner { display: block; right: 0.75rem; bottom: 0.75rem; left: 0.75rem; }
+            .nv-cookie-banner .nv-cookie-actions { justify-content: stretch; margin-top: 1rem; }
+            .nv-cookie-banner .nv-cookie-button { flex: 1 1 100%; }
+            .nv-cookie-actions { justify-content: stretch; }
+            .nv-cookie-button { flex: 1 1 auto; }
+        }
     </style>
 </head>
 <body>
@@ -379,6 +430,7 @@
             <div class="footer-links">
                 <a href="impressum.html">Impressum</a>
                 <a href="datenschutz.html">Datenschutz</a>
+                <button type="button" class="footer-cookie-button" id="nv-cookie-settings">Datenschutz-Einstellungen</button>
             </div>
             <div class="footer-copyright">
                 &copy; 2026 Nueva Vida. Alle Rechte vorbehalten.
@@ -386,7 +438,10 @@
         </div>
     </footer>
 
+    <div id="nv-cookie-dialog" hidden></div>
+
     <!-- JS -->
+    <script src="cookie-consent.js" defer></script>
     <script>
         const hamburgerBtn = document.getElementById('hamburgerBtn'   );
         const navMenu = document.getElementById('navMenu');
